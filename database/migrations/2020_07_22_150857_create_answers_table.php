@@ -14,11 +14,11 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table-id();
-            $table-foreignId('user_id');
-            $table-foreignId('question_id');
-            $table-text('answer');
-            $table-timestamps();
+            $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('question_id');
+            $table->text('answer');
+            $table->timestamps();
         });
     }
 
