@@ -39,4 +39,10 @@ class AnswerController extends Controller
         // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->route('addanswer');
     }
+
+    public function index()
+    {
+        $answers = Answer::orderBy('created_at', 'asc')->get();
+        return view('AddAnswer', compact('answers'));
+    }
 }

@@ -38,4 +38,11 @@ class QuestionController extends Controller
         // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->route('addquestion');
     }
+
+    public function index()
+    {
+        $questions = Question::orderBy('updated_at', 'desc')->get();
+        return view('AddQuestion', compact('questions'));
+    }
+
 }

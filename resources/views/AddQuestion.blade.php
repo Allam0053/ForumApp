@@ -23,6 +23,29 @@
         <button type="submit" class="btn btn-primary">Tambah</button>
     </form>
 
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>user_id</th>
+          <th>question</th>
+          <th>created at</th>
+          <th>updated at</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($questions as $question)
+        <tr>
+          <td>{{ $question->id }}</td>
+          <td>{{ $question->user_id }}</td>
+          <td>{{ $question->question }}</td>
+          <td>{{ $question->created_at }}</td>
+          <td>{{ $question->updated_at }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

@@ -30,14 +30,10 @@ Route::put('updateanswer', 'AnswerController@update')->name('updateanswer');
 Route::get('deleteanswer/{id}', 'AnswerController@delete')->name('deleteanswer');
 
 //buat test CRUD
-Route::get('addquestion', function () {
-    return view('AddQuestion');
-})->name('addquestion');
+Route::get('addquestion', 'QuestionController@index')->name('addquestion');
 
 Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
 
-Route::get('addanswer', function () {
-    return view('AddAnswer');
-})->name('addanswer');
+Route::get('addanswer', 'AnswerController@index')->name('addanswer');
 
 Route::get('editanswer/{id}', 'AnswerController@edit')->name('editanswer');
