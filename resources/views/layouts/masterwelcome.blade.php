@@ -70,7 +70,7 @@
     <body>
         <!--navbar atas-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-          <a class="navbar-brand" href="{{ route('dashboard') }}">Tugas 4</a>
+          <a class="navbar-brand" href="">Tugas 4</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -78,10 +78,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <!--<li class="nav-item active">
-                <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                {{-- <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a> --}}
               </li>-->
               <!--<li class="nav-item active">
-                <a class="nav-link" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a>
+                {{-- <a class="nav-link" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a> --}}
               </li>-->
               <li class="nav-item active" style="margin-right: 5px">
                 <!-- Button trigger modal -->
@@ -98,7 +98,7 @@
                       </div>
                       <div class="modal-body">
                         <!--login-->
-                        <form class="form" method="post" action="{{ route('login') }}">
+                        <form class="form" method="post" action="">
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
@@ -131,7 +131,7 @@
                       </div>
                       <div class="modal-body">
                         <!--sign up-->
-                        <form class="form" method="post" action="{{ route('signup') }}">
+                        <form class="form" method="post" action="">
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
@@ -158,7 +158,7 @@
             </ul>
             <!--search-->
             <!--
-            <form class="form-inline my-2 my-lg-0" action="{{ route('search_f') }}" method="get">
+            {{-- <form class="form-inline my-2 my-lg-0" action="{{ route('search_f') }}" method="get"> --}}
               @csrf
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
               <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">Search</button>

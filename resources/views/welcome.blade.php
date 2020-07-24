@@ -12,7 +12,7 @@
         
 
         <div class="content">
-            <div class="title m-b-md">
+            <div class="title text-light m-b-md">
                 Tugas 4 Software House
             </div>
 

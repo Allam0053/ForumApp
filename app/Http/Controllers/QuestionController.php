@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\User;
 
 class QuestionController extends Controller
 {
     public function store(Request $request) {
-        Question::create([
-            'user_id' => $request->user_id,
-            'question' => $request->question
-        ]);
+        $user = User::find($request->user_id);
+
+        if($user !== null) {
+            $question = $user->question()->create([
+                'question' => $request->question
+            ]);
+        }
         
         // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->back(); 
@@ -20,6 +24,7 @@ class QuestionController extends Controller
     public function edit($id){
         $question = Question::find($id);
 
+        // ubah kalau udah ada halaman detail pertanyaan
         return view('EditQuestion', compact('question'));
     }
 
@@ -42,7 +47,17 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::orderBy('updated_at', 'desc')->get();
+
+        // ubah kalau udah ada halaman detail pertanyaan
         return view('AddQuestion', compact('questions'));
+    }
+
+    public function questionByUser($user_id) {
+        $user = User::find($user_id);
+        $questions = $user->question()->orderBy('created_at', 'asc')->get();
+
+        // ubah kalau udah ada halaman pertanyaan per user
+        return $questions;
     }
 
 }
