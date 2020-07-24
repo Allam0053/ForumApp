@@ -98,7 +98,7 @@
                       </div>
                       <div class="modal-body">
                         <!--login-->
-                        <form class="form" method="post" action="">
+                        <form class="form" method="post" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
@@ -131,7 +131,7 @@
                       </div>
                       <div class="modal-body">
                         <!--sign up-->
-                        <form class="form" method="post" action="">
+                        <form class="form" method="post" action="{{ route('signup') }}">
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
