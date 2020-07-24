@@ -119,24 +119,6 @@
 
 </div>
 
-
-<!-- <div class="row" style="margin-top: 30px">
-	@foreach($questions as $frm)
-	<div class="content col-4" style="margin-top: 30px;">
-		<div class="card" style=" background-color:rgba(255, 255, 200, 0.7); border-radius: 10px">
-			<div class="card-title" style="margin-top: 10px;">
-				<p><small>{{$frm->created_at->diffForHumans()}}</small><?php if ($frm->created_at != $frm->updated_at) echo ", <small>diedit " . $frm->updated_at->diffForHumans() . "</small>"; ?></p>
-			</div>
-			<div class="card-body">
-				<h3><a href="{{route('view',$frm->id)}}">{{substr($frm->question, 0, 17)}}</a><?php if (substr($frm->question, 0, 17) != $frm->question) echo "..."; ?></h3>
-				<h3><small>oleh {{$frm->user->name}}</small></h3>
-			</div>
-		</div>
-	</div>
-	@endforeach
-</div> -->
-
-
 <div class="row">
 	@foreach($questions as $frm)
 	<div class="col-sm-4" style="margin-top: 15px;">
