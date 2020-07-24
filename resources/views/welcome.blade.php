@@ -17,9 +17,8 @@
         <div class="content">
             <div class="title text-light m-b-md">
                 Tugas 4 Software House
-                <button class="btn btn-primary btn-lg"><a href="{{ route('forum') }}">FORUM diskusi</a></button>
             </div>
-
+            <a class="btn btn-primary btn-lg" href="{{ route('forum') }}">FORUM diskusi</a>
         </div>
     </div>
 @endsection

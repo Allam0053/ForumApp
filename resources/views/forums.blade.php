@@ -4,11 +4,11 @@
 
 
 @section('buttonprofil')
-    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdropprofil" style="margin-right: 10px">profil</button>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdropprofil" style="margin-right: 10px">Profil</button>
 @endsection
 
 @section('buttonlogin')
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdroplogin">log in</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdroplogin">Log in</button>
 @endsection
 
 @section('content')
@@ -63,18 +63,14 @@
 		        </button>
 		      </div>
 		      @if(Auth::check())
-		      <form class="form" method="post" action="#">
+		      <form class="form" method="post" action="{{ route('storequestion') }}">
 		      	<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 		      	<input type="hidden" name="slug" value="0">
 		      	<div class="modal-body">
 					@csrf
 					<div class="form-group">
-						<label>Judul</label>
-						<input type="text" class="form-control" name="judul" placeholder="judul">
-					</div>
-					<div class="form-group">
-						<label>Deskripsi</label>
-						<textarea class="form-control" name="konten" placeholder="Deskripsi"></textarea>
+						<label for="question">Pertanyaan:</label>
+						<textarea class="form-control" rows="5" name="question"></textarea>
 					</div>
 		    	</div>
 			    <div class="modal-footer">
@@ -96,7 +92,7 @@
                       </div>
                       <div class="modal-body">
                         <!--login-->
-                        <form class="form" method="post" action="">
+                        <form class="form" method="post" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
