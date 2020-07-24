@@ -45,3 +45,10 @@ Route::get('showanswerbyuser/{user_id}', 'AnswerController@answerByUser');
 Route::get('showquestionbyuser/{user_id}', 'QuestionController@questionByUser');
 
 Route::get('forum', 'QuestionController@forum')->name('forum');
+
+//sign up
+Route::post('/signup', 'authcontroller@signup')->name('signup');
+//login route
+Route::post('/login', 'authcontroller@login')->name('login');
+//logout route
+Route::get('/logout', 'authcontroller@logout')->name('logout');
