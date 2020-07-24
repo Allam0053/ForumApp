@@ -19,7 +19,6 @@
         {{-- <input type="hidden" name="user_id" value="{{ Auth::id() }}"> --}}
         <input type="number" class="form-control" name="user_id" placeholder="user id">
 
-
         <button type="submit" class="btn btn-primary">Tambah</button>
     </form>
 

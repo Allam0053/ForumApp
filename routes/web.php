@@ -31,17 +31,17 @@ Route::get('deleteanswer/{id}', 'AnswerController@delete')->name('deleteanswer')
 
 //buat test CRUD
 Route::get('addquestion', 'QuestionController@index')->name('addquestion');
-
+//buat test CRUD
 Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
-
+//buat test CRUD
 Route::get('addanswer', 'AnswerController@index')->name('addanswer');
-
+//buat test CRUD
 Route::get('editanswer/{id}', 'AnswerController@edit')->name('editanswer');
-
+//buat test CRUD
 Route::get('showanswerbyquestion/{question_id}', 'AnswerController@answerByQuestion');
-
+//buat test CRUD
 Route::get('showanswerbyuser/{user_id}', 'AnswerController@answerByUser');
-
+//buat test CRUD
 Route::get('showquestionbyuser/{user_id}', 'QuestionController@questionByUser');
 
 Route::get('forum', 'QuestionController@forum')->name('forum');
