@@ -15,12 +15,16 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-image: linear-gradient(90deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+                background-color: #f7f8fa;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background-image: radial-gradient(circle, rgba(57, 106, 252, 0.6), rgba(41, 72, 255, 0.2)), url('wallpaper/wallpaper2.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
             }
 
             .full-height {
@@ -69,60 +73,20 @@
     <body>
         <!--navbar atas-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-          <a class="navbar-brand" href="#">Tugas 4</a>
+          <a class="navbar-brand" href="#">Todo-App</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              @if(Auth::check())
               <li class="nav-item active">
                 <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
               </li>
-              @endif
               <li class="nav-item active">
                 <a class="nav-link" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a>
               </li>
-              @if(Auth::check()!=1)
-              <li class="nav-item">
-                <!-- Button trigger modal -->
-                @yield('buttonlogin')
-                <!-- Modal login -->
-                <div class="modal fade" id="staticBackdroplogin" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Login Form</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <!--login-->
-                        <form class="form" method="post" action="{{ route('login') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label>username</label>
-                                <input type="text" class="form-control" name="email" placeholder="username">
-                            </div>
-                            <div class="form-group">
-                                <label>password</label>
-                                <input type="password" class="form-control" name="password" placeholder="password">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">log in</button>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              @endif
-              <!--profik (jika login)-->
-              @if(Auth::check())
+              <!--profil-->
               <li class="nav-item active">
                 @yield('buttonprofil')
                 <div class="modal fade" id="staticBackdropprofil" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -147,9 +111,9 @@
                             </div>
                         
                       </div>
-                      <!--tombol log out-->
+
                       <div class="modal-footer">
-                        <a href="{{ route('logout') }}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
+                        <a href="{{ route('logout')}}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         <button type="button" class="btn btn-primary">Ubah Profil</button>
                       </div>
@@ -157,7 +121,6 @@
                   </div>
                 </div>
               </li>
-              @endif
             </ul>
             <!--search-->
             <form class="form-inline my-2 my-lg-0" action="#" method="get">

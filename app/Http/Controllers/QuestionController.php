@@ -61,6 +61,10 @@ class QuestionController extends Controller
         return view('forums', compact(['questions','answers']));
     }
 
+    public function home(){
+        return view('home');
+    }
+
     public function questionByUser($user_id) {
         $user = User::find($user_id);
         $questions = $user->question()->orderBy('created_at', 'asc')->get();

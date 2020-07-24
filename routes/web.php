@@ -52,3 +52,8 @@ Route::post('/signup', 'authcontroller@signup')->name('signup');
 Route::post('/login', 'authcontroller@login')->name('login');
 //logout route
 Route::get('/logout', 'authcontroller@logout')->name('logout');
+
+Route::group( ['middleware' => ['auth']] , function(){
+	//page awal login
+	Route::get('home', 'QuestionController@home')->name('home')->middleware('auth');
+});
