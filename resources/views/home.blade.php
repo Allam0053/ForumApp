@@ -29,9 +29,9 @@
                 </div>
                 <div class="row">
                 <!---->
-
+                
                 @foreach( auth()->user()->question as $que)
-                <div class="card mb-3" style="max-width: 425px; margin-right: 10px">
+                <div class="card mb-3" style="max-width: 350px; margin-right: 10px">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="wallpaper/undraw_web_developer_p3e5.svg" class="card-img" >
@@ -43,12 +43,17 @@
                         </div>
                     </div>
                 </div>
-                @if( $loop->index == 2)break; 
-                @endif
+                <?php 
+                    if( $loop->index == 2)
+                        break; 
+                ?>
                 @endforeach
-
+                </div>
+                
+                <div class="row">
+                
                 @foreach( auth()->user()->answer as $ans)
-                <div class="card mb-3" style="max-width: 425px; margin-right: 10px">
+                <div class="card mb-3" style="max-width: 350px; margin-right: 10px">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="wallpaper/undraw_code_review_l1q9.svg" class="card-img" >
@@ -60,8 +65,28 @@
                         </div>
                     </div>
                 </div>
+                <?php 
+                    if( $loop->index == 2)
+                        break; 
+                ?>
                 @endforeach
                 </div>
+                <br>
+                <div class="row">
+                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto auto auto auto">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" >
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="card-title"><h4><strong><a href="{{ route('list') }}">Pertanyaan dan Jawaban Saya</a></strong></h4></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 @endsection

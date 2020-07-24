@@ -79,12 +79,12 @@ class QuestionController extends Controller
         return view('view',compact('question'));
     }
 
-    public function questionByUser($user_id) {
-        $user = User::find($user_id);
-        $questions = $user->question()->orderBy('created_at', 'asc')->get();
-
+    public function questionByUser() {
+        $user = User::find(auth()->user()->id);
+        $questions = $user->question()->orderBy('created_at', 'DESC')->get();
+        $answers = $user->answer()->orderBy('created_at', 'DESC')->get();
         // ubah kalau udah ada halaman pertanyaan per user
-        return $questions;
+        return view('listQnA', compact(['questions','answers']));
     }
 
 }
