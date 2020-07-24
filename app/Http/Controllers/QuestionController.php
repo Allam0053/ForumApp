@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use App\User;
+use App\Answer;
 
 class QuestionController extends Controller
 {
@@ -50,6 +51,14 @@ class QuestionController extends Controller
 
         // ubah kalau udah ada halaman detail pertanyaan
         return view('AddQuestion', compact('questions'));
+    }
+
+    public function forum()
+    {
+        $questions = Question::orderBy('updated_at', 'desc')->paginate(5);
+        $answers = Answer::orderBy('updated_at', 'desc')->get();
+        // ubah kalau udah ada halaman detail pertanyaan
+        return view('forums', compact(['questions','asnwer']));
     }
 
     public function questionByUser($user_id) {

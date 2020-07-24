@@ -43,3 +43,5 @@ Route::get('showanswerbyquestion/{question_id}', 'AnswerController@answerByQuest
 Route::get('showanswerbyuser/{user_id}', 'AnswerController@answerByUser');
 
 Route::get('showquestionbyuser/{user_id}', 'QuestionController@questionByUser');
+
+Route::get('forum', 'QuestionController@forum')->name('forum');
