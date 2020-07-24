@@ -118,6 +118,45 @@
                   </div>
                 </div>
               </li>
+              <!---->
+              <!--profil-->
+              @if(Auth::check())
+              <li class="nav-item active">
+                @yield('buttonprofil')
+                <div class="modal fade" id="staticBackdropprofil" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header bg-secondary">
+                        <h5 class="modal-title text-white" id="staticBackdropLabel"><strong>{{auth()->user()->name}}</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <!--isi profil-->
+                      <div class="modal-body">
+                        
+                            <div class="form-control" style="margin: 5px auto 5px auto;">
+                                <label class="float-left" style="margin-right: auto;">Nama</label>
+                                <label class="float-right" style="margin-left: auto;">{{auth()->user()->name}}</label>
+                            </div>
+                            <div class="form-control" style="margin: 5px auto 5px auto;">
+                                <label class="float-left" style="margin-right: auto;">Username</label>
+                                <label class="float-right" style="margin-left: auto;">{{auth()->user()->email}}</label>
+                            </div>
+                        
+                      </div>
+
+                      <div class="modal-footer">
+                        <a href="{{ route('logout')}}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-primary">Ubah Profil</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              @endif
+              <!--sign up-->
               <li class="nav-item action" style="margin-left: 5px">
               @yield('buttonsignup')
                 <div class="modal fade" id="staticBackdropsignup" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
