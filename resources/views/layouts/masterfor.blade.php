@@ -144,8 +144,7 @@
                             <div class="form-control" style="margin: 5px auto 5px auto;">
                                 <label class="float-left" style="margin-right: auto;">Username</label>
                                 <label class="float-right" style="margin-left: auto;">{{auth()->user()->email}}</label>
-                            </div>
-                        
+                            </div>     
                       </div>
                       <!--tombol log out-->
                       <div class="modal-footer">
@@ -160,8 +159,7 @@
               @endif
             </ul>
             <!--search-->
-            <form class="form-inline my-2 my-lg-0" action="#" method="get">
-              @csrf
+            <form class="form-inline my-2 my-lg-0" action="" method="get">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
               <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">Search</button>
             </form>

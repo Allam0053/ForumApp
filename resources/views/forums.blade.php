@@ -70,7 +70,7 @@
 					@csrf
 					<div class="form-group">
 						<label for="question">Pertanyaan:</label>
-						<textarea class="form-control" rows="5" name="question"></textarea>
+						<textarea class="form-control" rows="5" name="question" required></textarea>
 					</div>
 		    	</div>
 			    <div class="modal-footer">
@@ -128,8 +128,8 @@
 					<p><small>{{$frm->created_at->diffForHumans()}}</small><?php if($frm->created_at!=$frm->updated_at) echo", <small>diedit ".$frm->updated_at->diffForHumans()."</small>";?></p>
 				</div>
 					<div class="card-body">
+						<h3>{{substr($frm->question, 0, 20)}}<?php if(substr($frm->question, 0, 20)!=$frm->question)echo"...";?></h3>
 						<h3><small>oleh {{$frm->user->name}}</small></h3>
-						<p>{{substr($frm->question, 0, 20)}}<?php if(substr($frm->question, 0, 20)!=$frm->question)echo"...";?></p>
 					</div>			
 			</div>
 		</div>
