@@ -152,7 +152,7 @@
 				
 					@foreach($answers as $ans)
 							<tr>
-								<td><a href="#">{{$ans->forum_id}}</a></td>
+								<td><a href="#">{{$ans->question_id}}</a></td>
 								<td>{{substr($ans->answer,0,20)}}</td>
 							</tr>
 					@endforeach
