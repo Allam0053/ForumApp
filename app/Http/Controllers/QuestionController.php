@@ -35,7 +35,16 @@ class QuestionController extends Controller
         ]);
         
         // ubah kalau udah ada halaman detail pertanyaan
-        return redirect()->route('addquestion');
+        return redirect()->back();
+    }
+
+    public function editques(Request $request){
+        Question::where('id', $request->id)->update([
+            'question' => $request->question
+        ]);
+        
+        // ubah kalau udah ada halaman detail pertanyaan
+        return redirect()->back()->with('sukses','sukses diperbarui');
     }
     
     public function delete($id) {
@@ -63,6 +72,11 @@ class QuestionController extends Controller
 
     public function home(){
         return view('home');
+    }
+
+    public function view($id){
+        $question = Question::find($id);
+        return view('view',compact('question'));
     }
 
     public function questionByUser($user_id) {

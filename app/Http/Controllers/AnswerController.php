@@ -37,7 +37,7 @@ class AnswerController extends Controller
         ]);
         
         // ubah kalau udah ada halaman detail pertanyaan
-        return redirect()->route('addanswer');
+        return redirect()->back();
     }
     
     public function delete($id) {

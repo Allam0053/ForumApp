@@ -22,50 +22,46 @@
         @endif
 
         <!--todo app-->
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             <div class="content">
                 <div class="title m-b-md text-white">
                     FORUM App
                 </div>
-
+                <div class="row">
                 <!---->
-                <div class="card mb-3" style="max-width: 450px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="wallpaper/undraw_shared_workspace_hwky.svg" class="card-img" >
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <div class="card-title"><h4><strong>Git Project</strong></h4></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3" style="max-width: 450px;">
+
+                @foreach( auth()->user()->question as $que)
+                <div class="card mb-3" style="max-width: 425px; margin-right: 10px">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="wallpaper/undraw_web_developer_p3e5.svg" class="card-img" >
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <div class="card-title"><h4><strong>Web Developing</strong></h4></div>
+                                <div class="card-title"><h4><strong>{{substr($que->question,0,15)}}<?php if(strlen($que->question)>15)echo"...";?></strong></h4></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 450px;">
+                @if( $loop->index == 2)break; 
+                @endif
+                @endforeach
+
+                @foreach( auth()->user()->answer as $ans)
+                <div class="card mb-3" style="max-width: 425px; margin-right: 10px">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="wallpaper/undraw_code_review_l1q9.svg" class="card-img" >
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <div class="card-title"><h4><strong>Laravel Framework</strong></h4></div>
+                                <div class="card-title"><h4><strong>{{ substr($ans->answer,0,20) }}</strong></h4></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                @endforeach
+                </div>
             </div>
         </div>
 @endsection

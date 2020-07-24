@@ -33,6 +33,7 @@ Route::get('deleteanswer/{id}', 'AnswerController@delete')->name('deleteanswer')
 Route::get('addquestion', 'QuestionController@index')->name('addquestion');
 //buat test CRUD
 Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
+Route::post('editques', 'QuestionController@editques')->name('editques');
 //buat test CRUD
 Route::get('addanswer', 'AnswerController@index')->name('addanswer');
 //buat test CRUD
@@ -45,6 +46,8 @@ Route::get('showanswerbyuser/{user_id}', 'AnswerController@answerByUser');
 Route::get('showquestionbyuser/{user_id}', 'QuestionController@questionByUser');
 
 Route::get('forum', 'QuestionController@forum')->name('forum');
+
+Route::get('view/{id}', 'QuestionController@view')->name('view');
 
 //sign up
 Route::post('/signup', 'authcontroller@signup')->name('signup');

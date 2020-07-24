@@ -128,7 +128,7 @@
 					<p><small>{{$frm->created_at->diffForHumans()}}</small><?php if($frm->created_at!=$frm->updated_at) echo", <small>diedit ".$frm->updated_at->diffForHumans()."</small>";?></p>
 				</div>
 					<div class="card-body">
-						<h3>{{substr($frm->question, 0, 20)}}<?php if(substr($frm->question, 0, 20)!=$frm->question)echo"...";?></h3>
+						<h3><a href="{{route('view',$frm->id)}}">{{substr($frm->question, 0, 17)}}</a><?php if(substr($frm->question, 0, 17)!=$frm->question)echo"...";?></h3>
 						<h3><small>oleh {{$frm->user->name}}</small></h3>
 					</div>			
 			</div>
