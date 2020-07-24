@@ -96,7 +96,7 @@
                       </div>
                       <div class="modal-body">
                         <!--login-->
-                        <form class="form" method="post" action="{{ # }}">
+                        <form class="form" method="post" action="">
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
@@ -125,7 +125,7 @@
 
 	
 	<div class="row" style="margin-top: 30px">
-		@foreach($question as $frm)
+		@foreach($questions as $frm)
 		<div class="content col-4" style="margin-top: 30px;">
 			<div class="card" style=" background-color:rgba(255, 255, 200, 0.7); border-radius: 10px">
 				<div class="card-title" style="margin-top: 10px;">
@@ -133,7 +133,7 @@
 				</div>
 					<div class="card-body">
 						<h3><small>oleh {{$frm->user->name}}</small></h3>
-						<p>{{substr($frm->questions, 0, 20)}}<?php if(substr($frm->questions, 0, 20)!=$frm->questions)echo"...";?></p>
+						<p>{{substr($frm->question, 0, 20)}}<?php if(substr($frm->question, 0, 20)!=$frm->question)echo"...";?></p>
 					</div>			
 			</div>
 		</div>
@@ -153,7 +153,7 @@
 					@foreach($answers as $ans)
 							<tr>
 								<td><a href="#">{{$ans->forum_id}}</a></td>
-								<td>{{substr($ans->konten,0,20)}}</td>
+								<td>{{substr($ans->answer,0,20)}}</td>
 							</tr>
 					@endforeach
 				

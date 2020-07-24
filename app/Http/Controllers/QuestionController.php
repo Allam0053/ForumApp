@@ -58,7 +58,7 @@ class QuestionController extends Controller
         $questions = Question::orderBy('updated_at', 'desc')->paginate(5);
         $answers = Answer::orderBy('updated_at', 'desc')->get();
         // ubah kalau udah ada halaman detail pertanyaan
-        return view('forums', compact(['questions','asnwer']));
+        return view('forums', compact(['questions','answers']));
     }
 
     public function questionByUser($user_id) {
