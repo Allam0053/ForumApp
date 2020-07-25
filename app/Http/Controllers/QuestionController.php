@@ -18,14 +18,12 @@ class QuestionController extends Controller
             ]);
         }
         
-        // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->route('view', $question->id); 
     }
 
     public function edit($id){
         $question = Question::find($id);
 
-        // ubah kalau udah ada halaman detail pertanyaan
         return view('EditQuestion', compact('question'));
     }
 
@@ -34,24 +32,14 @@ class QuestionController extends Controller
             'question' => $request->question
         ]);
         
-        // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->back()->with('sukses','sukses diperbarui');;
     }
     
     public function delete($id) {
         Question::where('id', $id)->delete();
 
-        // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->route('forum');
     }
-    
-    //buat test crud
-    // public function index()
-    // {
-    //     $questions = Question::orderBy('updated_at', 'desc')->get();
-
-    //     return view('AddQuestion', compact('questions'));
-    // }
 
     public function forum()
     {
@@ -63,6 +51,7 @@ class QuestionController extends Controller
 
     public function view($id){
         $question = Question::find($id);
+        
         return view('view',compact('question'));
     }
 

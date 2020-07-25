@@ -27,7 +27,6 @@ class AnswerController extends Controller
     public function edit($id){
         $answer = Answer::find($id);
 
-        // ubah kalau udah ada halaman detail pertanyaan
         return view('EditAnswer', compact('answer'));
     }
 
@@ -36,30 +35,19 @@ class AnswerController extends Controller
             'answer' => $request->answer
         ]);
         
-        // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->back();
     }
     
     public function delete($id) {
         Answer::where('id', $id)->delete();
 
-        // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->back();
-    }
-
-    public function answerByQuestion($question_id) {
-        $question = Question::find($question_id);
-        $answers = $question->answer()->orderBy('created_at', 'asc')->get();
-
-        // ubah kalau udah ada halaman detail pertanyaan
-        return $answers;
     }
 
     public function answerByUser() {
         $user = User::find(auth()->user()->id);
         $answers = $user->answer()->orderBy('created_at', 'desc')->paginate(6);
 
-        // ubah kalau udah ada halaman jawaban per user
         return view('listA', compact(['answers']));
     }
 }

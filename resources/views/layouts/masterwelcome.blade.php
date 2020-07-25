@@ -20,7 +20,6 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                /* height: 100vh; */
                 margin: 0;
             }
 
@@ -77,12 +76,6 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <!--<li class="nav-item active">
-                {{-- <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a> --}}
-              </li>-->
-              <!--<li class="nav-item active">
-                {{-- <a class="nav-link" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a> --}}
-              </li>-->
               <li class="nav-item active" style="margin-right: 5px">
                 <!-- Button trigger modal -->
                 @yield('buttonlogin')
@@ -149,7 +142,6 @@
                       <div class="modal-footer">
                         <a href="{{ route('logout')}}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        {{-- <button type="button" class="btn btn-primary">Ubah Profil</button> --}}
                       </div>
                     </div>
                   </div>
@@ -195,14 +187,6 @@
                 </div>
               </li>
             </ul>
-            <!--search-->
-            <!--
-            {{-- <form class="form-inline my-2 my-lg-0" action="{{ route('search_f') }}" method="get"> --}}
-              {{-- @csrf --}}
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-              <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            -->
           </div>
         </nav>
         <div class="container">

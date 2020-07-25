@@ -115,7 +115,6 @@
                       <div class="modal-footer">
                         <a href="{{ route('logout')}}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        {{-- <button type="button" class="btn btn-primary">Ubah Profil</button> --}}
                       </div>
                     </div>
                   </div>
