@@ -14,7 +14,7 @@
 				</svg>
 				<blockquote class="blockquote mb-0">
 					<h4><strong>{{$question->question}}</strong></h4>
-					<footer class="blockquote-footer">Ditanyakan oleh {{$question->user->name}}, <small>{{$question->created_at->diffForHumans()}}</small></a></footer>
+					<footer class="blockquote-footer">Ditanyakan oleh {{$question->user->name}}, <small>{{$question->created_at->diffForHumans()}}</small>@if ($question->created_at != $question->updated_at) diedit <small>{{$question->updated_at->diffForHumans()}}</small> @endif</footer>
 				</blockquote>
 			</div>
 			@if(Auth::check())
@@ -58,7 +58,7 @@
 				<!--answer-->
 				@foreach($question->answer as $kmn)
 				@if($kmn->parent=='')
-				<h5 class="text-justify"><strong>{{$kmn->user->name}}</strong>, <small>{{$kmn->created_at->diffForHumans()}}</small></h5>
+				<h5 class="text-justify"><strong>{{$kmn->user->name}}</strong>, <small>{{$kmn->created_at->diffForHumans()}} @if ($kmn->created_at != $kmn->updated_at) diedit {{$kmn->updated_at->diffForHumans()}}</small> @endif</h5>
 				<p class="text-justify">{{ $kmn->answer }}</p>
 				@if(Auth::check())
 				<a href="javascript:void(0)" class="btn btn-primary float-left" style="margin-right: 5px" data-toggle="modal" data-target="#balaskomen{{$kmn->id}}">Balas</a>
