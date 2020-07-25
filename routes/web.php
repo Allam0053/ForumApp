@@ -44,6 +44,7 @@ Route::get('listA', 'AnswerController@answerByUser')->name('listA');
 Route::get('view/{id}', 'QuestionController@view')->name('view');
 
 Route::get('/search_f', 'QuestionController@search_f')->name('search_f');
+
 Route::get('{search}/search_utility', 'QuestionController@search_utility')->name('search_utility');
 
 //sign up

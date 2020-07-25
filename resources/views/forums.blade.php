@@ -163,17 +163,16 @@
 	<div class="content col-4">
 		<table class="table card" style=" background-color:rgba(255, 255, 200, 0.7); border-radius: 10px">
 			<tr>
-				<th scope="col">id pertanyaan</th>
+				<th scope="col">aksi</th>
 				<th scope="col">balasan terkait</th>
 			</tr>
 
 			@foreach($answers as $ans)
 			<tr>
-				<td><a href="{{ route('view', $ans->question->id) }}">{{$ans->question_id}}</a></td>
+				<td><a href="{{ route('view', $ans->question->id) }}" class="btn btn-sm btn-outline-secondary">view</a></td>
 				<td>{{substr($ans->answer,0,20)}}</td>
 			</tr>
 			@endforeach
-
 		</table>
 	</div>
 </div>
