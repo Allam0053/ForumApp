@@ -11,6 +11,10 @@
 @endsection
 @endif
 
+@section('buttonprofil')
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdropprofil" style="margin-right: 10px">Profil</button>
+@endsection
+
 @section('content')
 @if(session('gagal'))
     <div class="toast fixed-top" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000" style="margin: 0 auto 0 auto;">
