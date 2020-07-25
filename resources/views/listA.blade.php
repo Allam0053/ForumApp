@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <div class="card-title"><h4><strong><a href="{{ route('view', $ans->question->id) }}" class="text-body">{{ substr($ans->answer,0,15) }}</a></strong></h4></div>
+                                    <div class="card-title"><h4><strong><a href="{{ route('view', $ans->question->id) }}" class="text-body">{{ substr($ans->answer,0,15) }}<?php if(strlen($ans->answer)>15){echo "...";} ?></a></strong></h4></div>
                                 </div>
                             </div>
                         </div>
