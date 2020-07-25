@@ -96,11 +96,11 @@
 									@csrf
 									<div class="form-group">
 										<label>username</label>
-										<input type="text" class="form-control" name="email" placeholder="username">
+										<input type="text" class="form-control" name="email" placeholder="username" required>
 									</div>
 									<div class="form-group">
 										<label>password</label>
-										<input type="password" class="form-control" name="password" placeholder="password">
+										<input type="password" class="form-control" name="password" placeholder="password" required>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

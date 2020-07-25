@@ -20,7 +20,9 @@
 			@if(Auth::check())
 			@if(auth()->user()->id == $question->user_id)
 			<!--edit forum-->
-			<a class="btn btn-warning btn-sm float-right" style="margin-right: 5px" data-toggle="modal" data-target="#Modalforum">edit</a>
+			<a class="btn btn-warning btn-sm float-right" style="margin-right: 5px" data-toggle="modal" data-target="#Modalforum">Edit</a>
+			<!--delete forum-->
+			<a href="{{ route('deletequestion', $question->id)}}" class="btn btn-danger btn-sm float-right"  onclick="return confirm('Yakin hapus?')">Hapus</a>
 
 			<!-- Modal -->
 			<div class="modal fade" id="Modalforum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -32,12 +34,13 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form class="form" method="post" action="{{ route('editques',$question->id) }}">
+						<form class="form" method="post" action="{{ route('updatequestion') }}">
 							<input type="hidden" name="id" value="{{ $question->id }}">
 							<div class="modal-body">
 								@csrf
+								@method('PUT')
 								<div class="form-group">
-									<textarea class="form-control" name="question" placeholder="Deskripsi">{{$question->question}}</textarea>
+									<textarea class="form-control" name="question" placeholder="Deskripsi" required>{{$question->question}}</textarea>
 								</div>
 							</div>
 							<div class="modal-footer">
@@ -70,12 +73,12 @@
 								</button>
 							</div>
 
-							<form class="form" method="post" action="{{ route('addanswer') }}">
+							<form class="form" method="post" action="{{ route('storeanswer') }}">
 								@csrf
 								<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-								<input type="hidden" name="forum_id" value="{{ $question->id }}">
-								<input type="hidden" name="parent" value="{{$kmn->id}}">
-								<textarea type="text" name="answer" class="form-control" placeholder="balas answer..."></textarea>
+								<input type="hidden" name="question_id" value="{{ $question->id }}">
+								{{-- <input type="hidden" name="parent" value="{{$kmn->id}}"> --}}
+								<textarea type="text" name="answer" class="form-control" placeholder="balas answer..." required></textarea>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 									<button type="submit" class="btn btn-primary">Save changes</button>
@@ -91,9 +94,9 @@
 				@if(Auth::check())
 				@if( auth()->user()->id == $kmn->user_id )
 				<a href=" {{ route('deleteanswer', $kmn->id) }} " class="btn btn-danger btn-sm float-left" style="margin-right: 5px">delete</a>
-				<a class="btn btn-warning btn-sm float-left" style="margin-right: 5px" data-toggle="modal" data-target="#Modalanswer">edit</a>
+				<a class="btn btn-warning btn-sm float-left" style="margin-right: 5px" data-toggle="modal" data-target="#Modalanswer{{$kmn->id}}">edit</a>
 
-				<div class="modal fade" id="Modalanswer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade" id="Modalanswer{{$kmn->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header bg-secondary">
@@ -108,7 +111,7 @@
 								<div class="modal-body">
 									@csrf
 									<div class="form-group">
-										<textarea class="form-control" name="answer" placeholder="Deskripsi">{{$kmn->answer}}</textarea>
+										<textarea class="form-control" name="answer" placeholder="Deskripsi" required>{{$kmn->answer}}</textarea>
 									</div>
 								</div>
 								<div class="modal-footer">
@@ -133,7 +136,7 @@
 					@csrf
 					<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 					<input type="hidden" name="question_id" value="{{ $question->id }}">
-					<textarea type="text" name="answer" class="form-control" placeholder="answer..." style="background-color: rgba(255,255,255,0.4); resize: none;"></textarea>
+					<textarea type="text" name="answer" class="form-control" placeholder="answer..." style="background-color: rgba(255,255,255,0.4); resize: none;" required></textarea>
 					<button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
 				</form>
 				@else
@@ -154,11 +157,11 @@
 									@csrf
 									<div class="form-group">
 										<label>Username</label>
-										<input type="text" class="form-control" name="email" placeholder="username">
+										<input type="text" class="form-control" name="email" placeholder="username" required>
 									</div>
 									<div class="form-group">
 										<label>Password</label>
-										<input type="password" class="form-control" name="password" placeholder="password">
+										<input type="password" class="form-control" name="password" placeholder="password" required>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

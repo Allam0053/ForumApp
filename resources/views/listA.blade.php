@@ -24,38 +24,25 @@
         <!--todo app-->
         <div class="flex-center position-ref">
             <div class="content">
-                <div class="title m-b-md text-white">
-                    FORUM App
-                </div>
-                <!---->
-            
+                
+                <div style="min-width: 80%; max-width: 100% ;margin: 2em auto 2em auto" class="text-white"><h2><strong>Jawaban Saya</strong></h2></div>
                 <div class="row">
-                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto auto auto auto">
+                    @foreach( $answers as $ans)
+                    <div class="card mb-3" style="max-width: 350px; margin-right: 10px">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" >
+                                <img src="wallpaper/undraw_code_review_l1q9.svg" class="card-img" >
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <div class="card-title"><h4><strong><a href="{{ route('listQ') }}">Pertanyaan Saya</a></strong></h4></div>
+                                    <div class="card-title"><h4><strong><a href="{{ route('view', $ans->question->id) }}" class="text-body">{{ substr($ans->answer,0,15) }}</a></strong></h4></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto auto auto auto">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" >
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <div class="card-title"><h4><strong><a href="{{ route('listA') }}">Jawaban Saya</a></strong></h4></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                {{$answers->links()}}
 
             </div>
         </div>

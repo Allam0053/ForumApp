@@ -30,23 +30,22 @@ Route::put('updateanswer', 'AnswerController@update')->name('updateanswer');
 Route::get('deleteanswer/{id}', 'AnswerController@delete')->name('deleteanswer');
 
 //buat test CRUD
-Route::get('addquestion', 'QuestionController@index')->name('addquestion');
-//buat test CRUD
-Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
-Route::post('editques', 'QuestionController@editques')->name('editques');
-//buat test CRUD
-Route::get('addanswer', 'AnswerController@index')->name('addanswer');
-//buat test CRUD
-Route::get('editanswer/{id}', 'AnswerController@edit')->name('editanswer');
-//buat test CRUD
+// Route::get('addquestion', 'QuestionController@index')->name('addquestion');
+// Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
+// Route::get('addanswer', 'AnswerController@index')->name('addanswer');
+// Route::get('editanswer/{id}', 'AnswerController@edit')->name('editanswer');
+
 Route::get('showanswerbyquestion/{question_id}', 'AnswerController@answerByQuestion');
-//buat test CRUD
+
 Route::get('showanswerbyuser/{user_id}', 'AnswerController@answerByUser');
-//buat test CRUD
+
 Route::get('showquestionbyuser/{user_id}', 'QuestionController@questionByUser');
 
 Route::get('forum', 'QuestionController@forum')->name('forum');
-Route::get('list', 'QuestionController@questionByUser')->name('list');
+
+Route::get('listQ', 'QuestionController@questionByUser')->name('listQ');
+
+Route::get('listA', 'AnswerController@answerByUser')->name('listA');
 
 Route::get('view/{id}', 'QuestionController@view')->name('view');
 
@@ -59,5 +58,7 @@ Route::get('/logout', 'authcontroller@logout')->name('logout');
 
 Route::group( ['middleware' => ['auth']] , function(){
 	//page awal login
-	Route::get('home', 'QuestionController@home')->name('home')->middleware('auth');
+	Route::get('home', function () {
+		return view('home');
+	})->name('home')->middleware('auth');
 });

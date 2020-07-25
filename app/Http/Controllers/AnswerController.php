@@ -20,7 +20,6 @@ class AnswerController extends Controller
             ]);
         }
         
-        // ubah kalau udah ada halaman detail pertanyaan
         return redirect()->back(); 
     }
 
@@ -44,17 +43,16 @@ class AnswerController extends Controller
         Answer::where('id', $id)->delete();
 
         // ubah kalau udah ada halaman detail pertanyaan
-        return redirect()->route('addanswer');
+        return redirect()->back();
     }
 
-    // sepertinya gak diperlukan
-    public function index()
-    {
-        $answers = Answer::orderBy('created_at', 'asc')->get();
+    //buat test crud
+    // public function index()
+    // {
+    //     $answers = Answer::orderBy('created_at', 'asc')->get();
 
-        // ubah kalau udah ada halaman detail pertanyaan
-        return view('AddAnswer', compact('answers'));
-    }
+    //     return view('AddAnswer', compact('answers'));
+    // }
 
     public function answerByQuestion($question_id) {
         $question = Question::find($question_id);
@@ -64,11 +62,11 @@ class AnswerController extends Controller
         return $answers;
     }
 
-    public function answerByUser($user_id) {
-        $user = User::find($user_id);
-        $answers = $user->answer()->orderBy('created_at', 'asc')->get();
+    public function answerByUser() {
+        $user = User::find(auth()->user()->id);
+        $answers = $user->answer()->orderBy('created_at', 'desc')->paginate(6);
 
         // ubah kalau udah ada halaman jawaban per user
-        return $answers;
+        return view('listA', compact(['answers']));
     }
 }
