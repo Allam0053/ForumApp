@@ -1,4 +1,9 @@
 @extends('layouts.masterfor')
+
+@section('buttonprofil')
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdropprofil" style="margin-right: 10px">Profil</button>
+@endsection
+
 @section('content')
 <?php $parent = 0 ?>
 <div class="row" style="margin-top: 20px;">
