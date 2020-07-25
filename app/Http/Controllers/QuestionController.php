@@ -73,4 +73,18 @@ class QuestionController extends Controller
         return view('listQ', compact(['questions']));
     }
 
+    public function search_f(Request $request){
+        if($request->has('search') && $request->search!=''){
+            return redirect()->route('search_utility',$request->search)->with('ketemu',$request->search);
+        }
+        return redirect()->route('forum')->with('no_result','tidak ada hasil pencarian');
+    }
+
+    public function search_utility(Request $request){
+        $questions = Question::where('question','LIKE','%'.$request->search.'%')
+                            ->orderBy('created_at','desc')
+                            ->paginate(6);
+        $answers = Answer::Where('answer','LIKE','%'.$request->search.'%')->get();
+        return view('forums',compact(['questions','answers']));
+    }
 }

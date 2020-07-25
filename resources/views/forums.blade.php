@@ -46,6 +46,21 @@
 </div>
 @endif
 
+@if(session('gagal'))
+    <div class="toast fixed-top" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000" style="margin: 0 auto 0 auto;">
+        <div class="toast-header">
+            <strong class="mr-auto">log in notifikasi</strong>
+            <small class="text-muted">Baru saja</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            {{session('gagal')}}
+        </div>
+    </div>
+@endif
+
 
 <div class="row" style="margin-top: 30px">
 	<div class="content col-12">
@@ -154,7 +169,7 @@
 
 			@foreach($answers as $ans)
 			<tr>
-				<td><a href="#">{{$ans->question_id}}</a></td>
+				<td><a href="{{ route('view', $ans->question->id) }}">{{$ans->question_id}}</a></td>
 				<td>{{substr($ans->answer,0,20)}}</td>
 			</tr>
 			@endforeach
