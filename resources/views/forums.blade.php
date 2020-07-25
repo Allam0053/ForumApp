@@ -138,9 +138,7 @@
 	@foreach($questions as $frm)
 	<div class="col-sm-4" style="margin-top: 15px;">
 		<div class="card">
-			<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-				<rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Contoh</text>
-			</svg>
+			<img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" height="225" class="bd-placeholder-img card-img-top">
 			<div class="card-body">
 				<h5 class="card-text"><strong>{{substr($frm->question, 0, 20)}}<?php if (substr($frm->question, 0, 20) != $frm->question) echo "..."; ?></strong></h5>
 				<p class="card-text">{{$frm->user->name}}</p>

@@ -9,9 +9,7 @@
 				Pertanyaan
 			</div>
 			<div class="card-body">
-				<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Contoh">
-					<rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Contoh</text>
-				</svg>
+				<img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img-top" height="225" class="bd-placeholder-img card-img-top">
 				<blockquote class="blockquote mb-0">
 					<h4><strong>{{$question->question}}</strong></h4>
 					<footer class="blockquote-footer">Ditanyakan oleh {{$question->user->name}}, <small>{{$question->created_at->diffForHumans()}}</small>@if ($question->created_at != $question->updated_at) diedit <small>{{$question->updated_at->diffForHumans()}}</small> @endif</footer>
