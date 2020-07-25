@@ -149,11 +149,12 @@
 							        </button>
 							      </div>
 							      <form class="form" method="post" action="{{ route('updateanswer') }}">
+									@csrf
+									@method('put')
 							      	<input type="hidden" name="id" value="{{ $balasan->id }}">
 							      	<div class="modal-body">
-										@csrf
 										<div class="form-group">
-											<textarea class="form-control" name="konten" placeholder="Deskripsi">{{$balasan->answer}}</textarea>
+											<textarea class="form-control" name="answer" placeholder="Deskripsi">{{$balasan->answer}}</textarea>
 										</div>
 							    	</div>
 								    <div class="modal-footer">
