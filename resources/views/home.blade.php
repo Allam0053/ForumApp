@@ -30,7 +30,7 @@
                 <!---->
             
                 <div class="row">
-                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto auto auto auto">
+                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto 5px auto auto">
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" >
@@ -43,7 +43,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto auto auto auto">
+                    <div class="card mb-3 flex-center" style="max-width: 350px; margin: auto auto auto 5px">
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" >

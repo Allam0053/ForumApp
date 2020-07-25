@@ -16,7 +16,8 @@ class AnswerController extends Controller
         if($user !== null && $question !== null) {
             $answer = $user->answer()->create([
                 'answer' => $request->answer,
-                'question_id' => $request->question_id
+                'question_id' => $request->question_id,
+                'parent' => $request->parent
             ]);
         }
         

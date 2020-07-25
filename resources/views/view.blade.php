@@ -80,7 +80,7 @@
 								@csrf
 								<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 								<input type="hidden" name="question_id" value="{{ $question->id }}">
-								{{-- <input type="hidden" name="parent" value="{{$kmn->id}}"> --}}
+								<input type="hidden" name="parent" value="{{$kmn->id}}">
 								<textarea type="text" name="answer" class="form-control" placeholder="balas answer..." required></textarea>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -128,7 +128,46 @@
 				@endif
 				@endif
 				<br><br>
-
+					<!--balasan-->
+					@foreach($kmn->child as $balasan)
+						<h5 class="text-justify" style="margin-left: 7%"><strong>{{$balasan->user->name}}</strong>, <small>{{$balasan->created_at->diffForHumans()}}</small></h5>
+						<p class="text-justify" style="margin-left: 7%">{{ $balasan->answer }}<br>
+						<!-- aksi komentar (oleh pembuat komentar) => edit/delete -->
+						@if(Auth::check())	
+							@if( auth()->user()->id == $balasan->user_id )
+							<a href=" {{ route('deleteanswer', $balasan->id) }} " class="btn btn-danger btn-sm">delete</a>
+							<a class="btn btn-warning btn-sm" style="margin-right: 5px" data-toggle="modal" data-target="#Modalbalasan">edit</a>
+							
+							<!-- Modal -->
+							<div class="modal fade" id="Modalbalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header bg-secondary">
+							        <h5 class="modal-titl text-white" id="ModalkomentarLabel">Edit Balasan</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <form class="form" method="post" action="{{ route('updateanswer') }}">
+							      	<input type="hidden" name="id" value="{{ $balasan->id }}">
+							      	<div class="modal-body">
+										@csrf
+										<div class="form-group">
+											<textarea class="form-control" name="konten" placeholder="Deskripsi">{{$balasan->answer}}</textarea>
+										</div>
+							    	</div>
+								    <div class="modal-footer">
+								        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+								        <button type="submit" class="btn btn-primary">Save changes</button>
+								    </div>
+								  </form>
+							    </div>
+							  </div>
+							</div>
+							@endif
+						@endif
+						</p>
+					@endforeach
 
 				@endif
 				<br>
