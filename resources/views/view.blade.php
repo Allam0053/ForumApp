@@ -60,8 +60,8 @@
 			<div class="card-footer" style=" background-color:rgba(255, 255, 200, 0.7); border-radius: 10px; margin-top: 10px">
 				<!--answer-->
 				@foreach($question->answer as $kmn)
-				@if($kmn->parent=='')
-				<h5 class="text-justify"><strong>{{$kmn->user->name}}</strong>, <small>{{$kmn->created_at->diffForHumans()}} @if ($kmn->created_at != $kmn->updated_at) diedit {{$kmn->updated_at->diffForHumans()}}</small> @endif</h5>
+				@if($kmn->parent=='0')
+				<h5 class="text-justify"><strong>{{$kmn->user->name}}</strong>, <small>{{$kmn->created_at->diffForHumans()}} @if ($kmn->created_at != $kmn->updated_at) diedit {{$kmn->updated_at->diffForHumans()}}@endif</small> </h5>
 				<p class="text-justify">{{ $kmn->answer }}</p>
 				@if(Auth::check())
 				<a href="javascript:void(0)" class="btn btn-primary float-left" style="margin-right: 5px" data-toggle="modal" data-target="#balaskomen{{$kmn->id}}">Balas</a>
@@ -154,7 +154,7 @@
 							      	<input type="hidden" name="id" value="{{ $balasan->id }}">
 							      	<div class="modal-body">
 										<div class="form-group">
-											<textarea class="form-control" name="answer" placeholder="Deskripsi">{{$balasan->answer}}</textarea>
+											<textarea class="form-control" name="answer" placeholder="Deskripsi" required>{{$balasan->answer}}</textarea>
 										</div>
 							    	</div>
 								    <div class="modal-footer">
