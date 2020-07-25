@@ -47,14 +47,6 @@ class AnswerController extends Controller
         return redirect()->back();
     }
 
-    //buat test crud
-    // public function index()
-    // {
-    //     $answers = Answer::orderBy('created_at', 'asc')->get();
-
-    //     return view('AddAnswer', compact('answers'));
-    // }
-
     public function answerByQuestion($question_id) {
         $question = Question::find($question_id);
         $answers = $question->answer()->orderBy('created_at', 'asc')->get();

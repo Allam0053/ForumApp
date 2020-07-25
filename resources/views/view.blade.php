@@ -130,16 +130,16 @@
 				<br><br>
 					<!--balasan-->
 					@foreach($kmn->child as $balasan)
-						<h5 class="text-justify" style="margin-left: 7%"><strong>{{$balasan->user->name}}</strong>, <small>{{$balasan->created_at->diffForHumans()}}</small></h5>
+						<h5 class="text-justify" style="margin-left: 7%"><strong>{{$balasan->user->name}}</strong>, <small>{{$balasan->created_at->diffForHumans()}}  @if ($balasan->created_at != $balasan->updated_at) diedit {{$balasan->updated_at->diffForHumans()}}@endif</small></h5>
 						<p class="text-justify" style="margin-left: 7%">{{ $balasan->answer }}<br>
 						<!-- aksi komentar (oleh pembuat komentar) => edit/delete -->
 						@if(Auth::check())	
 							@if( auth()->user()->id == $balasan->user_id )
 							<a href=" {{ route('deleteanswer', $balasan->id) }} " class="btn btn-danger btn-sm">delete</a>
-							<a class="btn btn-warning btn-sm" style="margin-right: 5px" data-toggle="modal" data-target="#Modalbalasan">edit</a>
+							<a class="btn btn-warning btn-sm" style="margin-right: 5px" data-toggle="modal" data-target="#Modalbalasan{{$balasan->id}}">edit</a>
 							
 							<!-- Modal -->
-							<div class="modal fade" id="Modalbalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal fade" id="Modalbalasan{{$balasan->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header bg-secondary">
@@ -179,6 +179,7 @@
 					@csrf
 					<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 					<input type="hidden" name="question_id" value="{{ $question->id }}">
+					<input type="hidden" name="parent" value="0">
 					<textarea type="text" name="answer" class="form-control" placeholder="answer..." style="background-color: rgba(255,255,255,0.4); resize: none;" required></textarea>
 					<button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
 				</form>
