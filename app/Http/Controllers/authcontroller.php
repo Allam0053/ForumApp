@@ -9,7 +9,7 @@ class authcontroller extends Controller
 {
     public function login(Request $request){
     	if(Auth::attempt($request->only('email','password'))){
-    		return redirect('forum');
+    		return redirect('home');
     	}else{
     		return redirect()->back()->with('gagal','username dan password salah');
     	}	

@@ -69,8 +69,8 @@
     </head>
     <body>
         <!--navbar atas-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-          <a class="navbar-brand" href="">Tugas 4</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="{{route('welcome')}}">Tugas 4</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -102,11 +102,11 @@
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
-                                <input type="text" class="form-control" name="email" placeholder="username">
+                                <input type="text" class="form-control" name="email" placeholder="username" required>
                             </div>
                             <div class="form-group">
                                 <label>password</label>
-                                <input type="password" class="form-control" name="password" placeholder="password">
+                                <input type="password" class="form-control" name="password" placeholder="password" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -149,7 +149,7 @@
                       <div class="modal-footer">
                         <a href="{{ route('logout')}}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="button" class="btn btn-primary">Ubah Profil</button>
+                        {{-- <button type="button" class="btn btn-primary">Ubah Profil</button> --}}
                       </div>
                     </div>
                   </div>
@@ -174,15 +174,15 @@
                             @csrf
                             <div class="form-group">
                                 <label>username</label>
-                                <input type="text" class="form-control" name="email" placeholder="username/email">
+                                <input type="text" class="form-control" name="email" placeholder="username" required>
                             </div>
                             <div class="form-group">
                                 <label>password</label>
-                                <input type="password" class="form-control" name="password" placeholder="password">
+                                <input type="password" class="form-control" name="password" placeholder="password" required>
                             </div>
                             <div class="form-group">
                                 <label>nama</label>
-                                <input type="text" class="form-control" name="name" placeholder="nama">
+                                <input type="text" class="form-control" name="name" placeholder="nama" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -198,7 +198,7 @@
             <!--search-->
             <!--
             {{-- <form class="form-inline my-2 my-lg-0" action="{{ route('search_f') }}" method="get"> --}}
-              @csrf
+              {{-- @csrf --}}
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
               <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">Search</button>
             </form>

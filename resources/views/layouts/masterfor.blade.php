@@ -71,8 +71,8 @@
 
 <body>
   <!--navbar atas-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-          <a class=" navbar-brand" href="#">Tugas 4</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class=" navbar-brand" href="{{route('welcome')}}">Tugas 4</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -81,11 +81,11 @@
       <ul class="navbar-nav mr-auto">
         @if(Auth::check())
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-dark" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
         </li>
         @endif
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-dark" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a>
         </li>
         @if(Auth::check()!=1)
         <li class="nav-item">
@@ -107,11 +107,11 @@
                     @csrf
                     <div class="form-group">
                       <label>username</label>
-                      <input type="text" class="form-control" name="email" placeholder="username">
+                      <input type="text" class="form-control" name="email" placeholder="username" required>
                     </div>
                     <div class="form-group">
                       <label>password</label>
-                      <input type="password" class="form-control" name="password" placeholder="password">
+                      <input type="password" class="form-control" name="password" placeholder="password" required>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

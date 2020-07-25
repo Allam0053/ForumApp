@@ -72,8 +72,8 @@
     </head>
     <body>
         <!--navbar atas-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-          <a class="navbar-brand" href="#">Tugas-4</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="{{route('welcome')}}">Tugas-4</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -81,10 +81,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link btn btn-dark" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a>
+                <a class="nav-link btn btn-dark" href="{{ route('forum') }}">Forum <span class="sr-only">(current)</span></a>
               </li>
               <!--profil-->
               <li class="nav-item active">
@@ -115,7 +115,7 @@
                       <div class="modal-footer">
                         <a href="{{ route('logout')}}"><button type="button" class="btn btn-danger"  onclick="return confirm('Yakin log out?')">log out</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="button" class="btn btn-primary">Ubah Profil</button>
+                        {{-- <button type="button" class="btn btn-primary">Ubah Profil</button> --}}
                       </div>
                     </div>
                   </div>

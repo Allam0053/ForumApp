@@ -1,7 +1,7 @@
 @extends('layouts.masterhome')
 
 @section('buttonprofil')
-    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdropprofil" style="margin-right: 10px">profil</button>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdropprofil" style="margin-right: 10px">Profil</button>
 @endsection
 
 @section('content')

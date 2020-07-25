@@ -29,12 +29,6 @@ Route::put('updateanswer', 'AnswerController@update')->name('updateanswer');
 
 Route::get('deleteanswer/{id}', 'AnswerController@delete')->name('deleteanswer');
 
-//buat test CRUD
-// Route::get('addquestion', 'QuestionController@index')->name('addquestion');
-// Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
-// Route::get('addanswer', 'AnswerController@index')->name('addanswer');
-// Route::get('editanswer/{id}', 'AnswerController@edit')->name('editanswer');
-
 Route::get('showanswerbyquestion/{question_id}', 'AnswerController@answerByQuestion');
 
 Route::get('showanswerbyuser/{user_id}', 'AnswerController@answerByUser');
