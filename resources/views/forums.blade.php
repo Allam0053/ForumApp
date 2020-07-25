@@ -138,7 +138,7 @@
 	@foreach($questions as $frm)
 	<div class="col-sm-4" style="margin-top: 15px;">
 		<div class="card">
-			<img src="wallpaper/undraw_pair_programming_njlp.svg" class="card-img" height="225" class="bd-placeholder-img card-img-top">
+			<img src="{{asset('wallpaper/undraw_pair_programming_njlp.svg')}}" class="card-img" height="225" class="bd-placeholder-img card-img-top">
 			<div class="card-body">
 				<h5 class="card-text"><strong>{{substr($frm->question, 0, 20)}}<?php if (substr($frm->question, 0, 20) != $frm->question) echo "..."; ?></strong></h5>
 				<p class="card-text">{{$frm->user->name}}</p>

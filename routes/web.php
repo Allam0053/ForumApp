@@ -45,7 +45,7 @@ Route::get('view/{id}', 'QuestionController@view')->name('view');
 
 Route::get('/search_f', 'QuestionController@search_f')->name('search_f');
 
-Route::get('{search}/search_utility', 'QuestionController@search_utility')->name('search_utility');
+Route::get('search_utility/{search}', 'QuestionController@search_utility')->name('search_utility');
 
 //sign up
 Route::post('/signup', 'authcontroller@signup')->name('signup');
