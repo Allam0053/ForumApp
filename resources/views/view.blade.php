@@ -23,7 +23,7 @@
 			@if(Auth::check())
 			@if(auth()->user()->id == $question->user_id)
 			<!--edit forum-->
-			<a class="btn btn-warning btn-sm float-right" style="margin-right: 5px" data-toggle="modal" data-target="#Modalforum">Edit</a>
+			<a class="btn btn-warning btn-sm float-right" data-toggle="modal" data-target="#Modalforum">Edit</a>
 			<!--delete forum-->
 			<a href="{{ route('deletequestion', $question->id)}}" class="btn btn-danger btn-sm float-right"  onclick="return confirm('Yakin hapus?')">Hapus</a>
 
