@@ -30,3 +30,14 @@ Bila user telah log in, maka akan muncul Home Page yang menampilkan 2 pilihan, y
 
 #### list jawaban
 <img src="SCREENSHOT/answerlist.png" width="800">
+
+
+### Pembuatan
+1. Menentukan app wire.
+2. Menentukan fitur yang akan dikembangkan (user auth, posting and replying a forum).
+3. Menentukan SQL database yang akan dipakai.
+4. Implementasi code.
+
+### Disclaimer
+Saya sadar bahwa app ini jauh dari sempurna.
+Tetapi app ini adalah awal dari pengalaman dalam pengembangan web app saya.
