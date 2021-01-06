@@ -18,7 +18,7 @@ Setelah memilih forum, user dapat melihat diskusi antar user lainnya.
 
 ### LOG IN
 Sebelum user dapat mulai berinteraksi, maka user diharuskan untuk log in atau sign up bila belum mempunyai akun.
-Untuk sign up maka user harus kembali ke ###### Landing Page
+Untuk sign up maka user harus kembali ke `Landing Page`.
 <img src="SCREENSHOT/loginform.png" width="800">
 
 ### Home
