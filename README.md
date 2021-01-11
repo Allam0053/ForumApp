@@ -4,6 +4,7 @@ from Tugas-4-Software-House-HMTC
 ## Deskripsi Aplikasi 📌
 Forum App adalah sebuah website yang mempunyai fitur tanya jawab.
 Lebih tepatnya website ini adalah penyedia sarana agar user dapat bertanya dan menjawab tentang suatu topik.
+Web ini menggunakan framework laravel 7 sebagain back-end dan bootstrap 4 sebagai front-end.
 
 ### Landing Page
 Pada landing page user bisa log in atau langsung melihat forum yang tersedia dengan tombol `forum diskusi`.
